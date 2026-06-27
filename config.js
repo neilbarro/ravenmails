@@ -15,5 +15,15 @@ window.RAVENMAILS_CONFIG = {
   //      (the numeric "data-ad-slot" value) into AD_SLOTS.
   //   3. Put your publisher ID in ads.txt at the site root (instructions inside).
   ADSENSE_CLIENT: "",
-  AD_SLOTS: { home: "", article: "" }
+  AD_SLOTS: { home: "", article: "" },
+
+  // --- Article cover images -------------------------------------------------
+  // Each article shows a cover image (card thumbnail + top of the article).
+  // Map a Drive doc ID -> an image (real photo OR a labeled illustration).
+  // Any article without a mapping falls back to DEFAULT_COVER.
+  // Tip: to use a real photo, drop it in assets/covers/ and point to it here.
+  ARTICLE_COVERS: {
+    "17cD2Gub9wLu6dfYCg4p-qa-_mrZir_PcyrIiazZmJKU": "assets/covers/six-minds.svg"
+  },
+  DEFAULT_COVER: "assets/covers/default.svg"
 };

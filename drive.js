@@ -5,6 +5,10 @@
   var KEY = CFG.GOOGLE_API_KEY || "";
   var FOLDER = CFG.DRIVE_FOLDER_ID || "";
   var ready = KEY && KEY.indexOf("PASTE_") === -1 && FOLDER;
+  var COVERS = CFG.ARTICLE_COVERS || {};
+  var DEFAULT_COVER = CFG.DEFAULT_COVER || "";
+  function coverFor(id) { return COVERS[id] || DEFAULT_COVER || ""; }
+  function isIllustration(src) { return /\.svg(\?|$)/i.test(src || ""); }
 
   var DISCLAIMERS =
     '<div class="disclaimer"><b>Photo disclaimer.</b> Photos are courtesy of their original owners and used for non-commercial, educational, and news-reporting purposes; rights remain with the owner. Any image marked as an illustration is an AI-generated artistic representation, not a photograph.</div>' +
@@ -58,9 +62,13 @@
     var h = body.querySelector("h1, h2");
     var title = h ? h.textContent.trim() : "";
     if (h) h.remove();
+    // pull the first embedded photo out for the hero (a real photo beats the illustration)
+    var firstImg = body.querySelector("img");
+    var image = firstImg ? (firstImg.getAttribute("src") || "") : "";
+    if (firstImg) firstImg.remove();
     // drop empty paragraphs
     body.querySelectorAll("p").forEach(function (p) { if (!p.textContent.trim() && !p.querySelector("img,a")) p.remove(); });
-    return { title: title, html: body.innerHTML };
+    return { title: title, html: body.innerHTML, image: image };
   }
   function firstText(html) {
     var d = new DOMParser().parseFromString(html, "text/html");
@@ -82,8 +90,12 @@
       files.forEach(function (f) {
         var a = document.createElement("a");
         a.className = "card"; a.href = "article.html?id=" + encodeURIComponent(f.id);
+        var cover = coverFor(f.id);
+        var thumb = '<div class="thumb"><span class="badge">ARTICLE</span><span class="emoji">🔬</span>' +
+          (cover ? '<img class="thumb-img" loading="lazy" src="' + cover + '" alt="" onerror="this.remove()">' : '') +
+          '</div>';
         a.innerHTML =
-          '<div class="thumb"><span class="badge">ARTICLE</span><span class="emoji">🔬</span></div>' +
+          thumb +
           '<div class="body"><span class="date">' + fmtDate(f.modifiedTime) + '</span>' +
           '<h3>' + (f.name || "Untitled") + '</h3>' +
           '<p>' + (f.description ? f.description : "Read the full story on Ravenmails.") + '</p>' +
@@ -110,7 +122,14 @@
         document.title = title + " — Ravenmails";
         if (titleEl) titleEl.textContent = title;
         if (metaEl) metaEl.textContent = "By the Ravenmails Team · " + fmtDate(meta.modifiedTime);
-        bodyEl.innerHTML = cleaned.html + DISCLAIMERS +
+        var heroSrc = cleaned.image || coverFor(id);
+        var heroHtml = "";
+        if (heroSrc) {
+          var cap = (!cleaned.image && isIllustration(heroSrc))
+            ? '<figcaption class="cover-cap">Illustration — AI-generated artistic representation, not a photograph.</figcaption>' : '';
+          heroHtml = '<figure class="article-cover"><img src="' + heroSrc + '" alt="" onerror="var f=this.closest(\'figure\');if(f)f.remove()">' + cap + '</figure>';
+        }
+        bodyEl.innerHTML = heroHtml + cleaned.html + DISCLAIMERS +
           '<p style="margin-top:26px"><a href="index.html">← Back to all articles</a> · <a href="editorial-standards.html">Our editorial standards</a></p>';
       })
       .catch(function (e) {
