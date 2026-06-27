@@ -1,0 +1,19 @@
+{
+  "name": "Ravenmails — The truth, delivered.",
+  "short_name": "Ravenmails",
+  "description": "Science, the big issues, and fact-checks — Filipino-first, globally curious. Sourced, cited, and human-reviewed.",
+  "start_url": "./index.html?source=pwa",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#08261c",
+  "theme_color": "#08261c",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["news", "education", "science"],
+  "icons": [
+    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "assets/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

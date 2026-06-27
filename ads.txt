@@ -1,0 +1,9 @@
+# Ravenmails — authorized digital sellers (ads.txt)
+# This file tells ad networks which sellers may sell Ravenmails' ad inventory.
+#
+# Once your Google AdSense account is APPROVED:
+#   1. Copy the line below.
+#   2. Replace pub-0000000000000000 with YOUR AdSense publisher ID.
+#   3. Remove the leading "# " so the line is active (not a comment).
+#
+# google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
