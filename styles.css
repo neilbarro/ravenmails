@@ -265,6 +265,27 @@ body.is-article .reading-progress{height:3px}
 .refs{border-top:1px solid var(--line);margin-top:26px;padding-top:8px}
 .refs h2{font-size:20px}
 .refs p{font-size:14px;color:var(--muted);margin:0 0 12px;padding-left:28px;text-indent:-28px;word-break:break-word}
+
+/* table of contents (auto-built in drive.js) */
+.toc{background:var(--bg-2);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:0 12px 12px 0;padding:16px 20px;margin:0 0 28px;font-family:-apple-system,sans-serif}
+.toc .toc-h{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);font-weight:800;margin:0 0 10px}
+.toc ol{margin:0;padding:0;list-style:none;counter-reset:toc}
+.toc li{counter-increment:toc;margin:7px 0;font-size:15.5px;line-height:1.4}
+.toc li::before{content:counter(toc) ".";color:var(--gold);font-weight:700;margin-right:8px}
+.toc li.lvl3{margin-left:20px;font-size:14.5px}
+.toc li.lvl3::before{content:"–";margin-right:8px}
+.toc a{color:var(--ink);text-decoration:none}
+.toc a:hover{color:var(--emerald);text-decoration:underline}
+.article-wrap h2,.article-wrap h3{scroll-margin-top:88px}
+
+/* in-text citations + numbered reference list */
+sup.cite{font-size:.72em;line-height:0}
+sup.cite a{color:var(--emerald);text-decoration:none;font-weight:700;padding:0 1px}
+sup.cite a:hover{text-decoration:underline}
+ol.ref-list{margin:12px 0 8px;padding-left:24px;font-size:14.5px;color:var(--muted);line-height:1.6}
+ol.ref-list li{margin:0 0 11px;scroll-margin-top:88px}
+ol.ref-list li:target{background:var(--chip-bg);border-radius:6px;box-shadow:0 0 0 7px var(--chip-bg)}
+ol.ref-list a{word-break:break-word}
 .refs a{word-break:break-all}
 
 /* ---------- Generic prose blocks (standards/about/corrections) ---------- */

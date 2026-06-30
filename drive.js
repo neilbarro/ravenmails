@@ -9,6 +9,9 @@
   var DEFAULT_COVER = CFG.DEFAULT_COVER || "";
   function coverFor(id) { return COVERS[id] || DEFAULT_COVER || ""; }
   function isIllustration(src) { return /\.svg(\?|$)/i.test(src || ""); }
+  function slugify(s) {
+    return (s || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 60) || "sec";
+  }
 
   var DISCLAIMERS =
     '<div class="disclaimer"><b>Photo disclaimer.</b> Photos are courtesy of their original owners and used for non-commercial, educational, and news-reporting purposes; rights remain with the owner. Any image marked as an illustration is an AI-generated artistic representation, not a photograph.</div>' +
@@ -68,7 +71,65 @@
     if (firstImg) firstImg.remove();
     // drop empty paragraphs
     body.querySelectorAll("p").forEach(function (p) { if (!p.textContent.trim() && !p.querySelector("img,a")) p.remove(); });
-    return { title: title, html: body.innerHTML, image: image };
+
+    // --- References: turn the "References" section into a numbered, anchored list ---
+    var refCount = 0;
+    var heads = Array.prototype.slice.call(body.querySelectorAll("h2,h3"));
+    var refHead = null;
+    heads.forEach(function (h) { if (!refHead && /^\s*references\b/i.test(h.textContent)) refHead = h; });
+    if (refHead) {
+      var ol = d.createElement("ol"); ol.className = "ref-list";
+      var n = refHead.nextElementSibling;
+      while (n && n.tagName !== "H2" && n.tagName !== "H3") {
+        var next = n.nextElementSibling;
+        if (n.tagName === "P" && n.textContent.trim()) {
+          refCount++;
+          var li = d.createElement("li"); li.id = "ref-" + refCount;
+          li.innerHTML = n.innerHTML;
+          ol.appendChild(li);
+        }
+        n.remove();
+        n = next;
+      }
+      if (ol.childNodes.length) refHead.parentNode.insertBefore(ol, refHead.nextSibling);
+    }
+
+    // --- Inline citations: [1] -> clickable superscript linking to that reference ---
+    if (refCount) {
+      var walker = d.createTreeWalker(body, NodeFilter.SHOW_TEXT, null);
+      var textNodes = [], tn;
+      while ((tn = walker.nextNode())) {
+        if (/\[\d+\]/.test(tn.nodeValue) && tn.parentNode &&
+            !tn.parentNode.closest("ol.ref-list, sup.cite, a, h1, h2, h3")) textNodes.push(tn);
+      }
+      textNodes.forEach(function (node) {
+        var frag = d.createDocumentFragment();
+        node.nodeValue.split(/(\[\d+\])/).forEach(function (part) {
+          var m = part.match(/^\[(\d+)\]$/);
+          if (m) {
+            var num = parseInt(m[1], 10);
+            var sup = d.createElement("sup"); sup.className = "cite";
+            if (num >= 1 && num <= refCount) {
+              var a = d.createElement("a"); a.href = "#ref-" + num; a.textContent = "[" + num + "]";
+              sup.appendChild(a);
+            } else { sup.textContent = part; }
+            frag.appendChild(sup);
+          } else if (part) { frag.appendChild(d.createTextNode(part)); }
+        });
+        node.parentNode.replaceChild(frag, node);
+      });
+    }
+
+    // --- Headings: stable anchor ids + table-of-contents data ---
+    var toc = [], used = {};
+    body.querySelectorAll("h2,h3").forEach(function (h) {
+      var base = slugify(h.textContent), id = base, i = 2;
+      while (used[id]) { id = base + "-" + i++; }
+      used[id] = 1; h.id = id;
+      toc.push({ id: id, text: h.textContent.trim(), level: h.tagName === "H3" ? 3 : 2 });
+    });
+
+    return { title: title, html: body.innerHTML, image: image, toc: toc };
   }
   function firstText(html) {
     var d = new DOMParser().parseFromString(html, "text/html");
@@ -129,7 +190,14 @@
             ? '<figcaption class="cover-cap">Illustration — AI-generated artistic representation, not a photograph.</figcaption>' : '';
           heroHtml = '<figure class="article-cover"><img src="' + heroSrc + '" alt="" onerror="var f=this.closest(\'figure\');if(f)f.remove()">' + cap + '</figure>';
         }
-        bodyEl.innerHTML = heroHtml + cleaned.html + DISCLAIMERS +
+        var tocHtml = "";
+        if (cleaned.toc && cleaned.toc.length >= 3) {
+          tocHtml = '<nav class="toc" aria-label="Table of contents"><p class="toc-h">In this article</p><ol>' +
+            cleaned.toc.map(function (t) {
+              return '<li class="lvl' + t.level + '"><a href="#' + t.id + '">' + t.text + '</a></li>';
+            }).join("") + '</ol></nav>';
+        }
+        bodyEl.innerHTML = heroHtml + tocHtml + cleaned.html + DISCLAIMERS +
           '<p style="margin-top:26px"><a href="index.html">← Back to all articles</a> · <a href="editorial-standards.html">Our editorial standards</a></p>';
       })
       .catch(function (e) {
