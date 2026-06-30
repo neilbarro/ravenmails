@@ -12,6 +12,27 @@
   function slugify(s) {
     return (s || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 60) || "sec";
   }
+  // Wrap bare http(s) URLs in <a> (Google Docs export leaves reference URLs as plain text).
+  function linkifyUrls(d, root) {
+    var walker = d.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+    var nodes = [], tn;
+    while ((tn = walker.nextNode())) {
+      if (/https?:\/\//.test(tn.nodeValue) && tn.parentNode && tn.parentNode.tagName !== "A") nodes.push(tn);
+    }
+    nodes.forEach(function (node) {
+      var frag = d.createDocumentFragment();
+      node.nodeValue.split(/(https?:\/\/[^\s]+)/g).forEach(function (part) {
+        if (/^https?:\/\//.test(part)) {
+          var clean = part.replace(/[.,);\]]+$/, ""), trail = part.slice(clean.length);
+          var a = d.createElement("a");
+          a.href = clean; a.textContent = clean; a.setAttribute("target", "_blank"); a.setAttribute("rel", "noopener");
+          frag.appendChild(a);
+          if (trail) frag.appendChild(d.createTextNode(trail));
+        } else if (part) { frag.appendChild(d.createTextNode(part)); }
+      });
+      node.parentNode.replaceChild(frag, node);
+    });
+  }
 
   var DISCLAIMERS =
     '<div class="disclaimer"><b>Photo disclaimer.</b> Photos are courtesy of their original owners and used for non-commercial, educational, and news-reporting purposes; rights remain with the owner. Any image marked as an illustration is an AI-generated artistic representation, not a photograph.</div>' +
@@ -91,7 +112,7 @@
         n.remove();
         n = next;
       }
-      if (ol.childNodes.length) refHead.parentNode.insertBefore(ol, refHead.nextSibling);
+      if (ol.childNodes.length) { refHead.parentNode.insertBefore(ol, refHead.nextSibling); linkifyUrls(d, ol); }
     }
 
     // --- Inline citations: [1] -> clickable superscript linking to that reference ---
