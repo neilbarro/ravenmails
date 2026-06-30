@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Illustration: an AI tool screening antibacterial peptides against antimicrobial resistance">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#08261c"/>
+      <stop offset="0.55" stop-color="#0c3a2b"/>
+      <stop offset="1" stop-color="#0f6b4e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.3" r="0.65">
+      <stop offset="0" stop-color="#d4af37" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#d4af37" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- peptide chain: linked amino-acid beads arcing across -->
+  <g stroke="#7fe0b0" stroke-width="5" fill="none" stroke-opacity="0.85">
+    <path d="M210 250 Q330 160 450 250 T690 250 T930 250"/>
+  </g>
+  <g fill="#f1e9d2">
+    <circle cx="210" cy="250" r="16"/><circle cx="330" cy="205" r="16"/>
+    <circle cx="450" cy="250" r="16"/><circle cx="570" cy="205" r="16"/>
+    <circle cx="690" cy="250" r="16"/><circle cx="810" cy="205" r="16"/>
+    <circle cx="930" cy="250" r="16"/>
+  </g>
+
+  <!-- AI node grid feeding a verdict -->
+  <g transform="translate(600 410)">
+    <g stroke="#d4af37" stroke-opacity="0.55" stroke-width="2">
+      <line x1="-150" y1="-40" x2="0" y2="30"/><line x1="-150" y1="10" x2="0" y2="30"/><line x1="-150" y1="60" x2="0" y2="30"/>
+      <line x1="0" y1="30" x2="150" y2="-30"/><line x1="0" y1="30" x2="150" y2="20"/><line x1="0" y1="30" x2="150" y2="70"/>
+    </g>
+    <g fill="#d4af37">
+      <circle cx="-150" cy="-40" r="10"/><circle cx="-150" cy="10" r="10"/><circle cx="-150" cy="60" r="10"/>
+      <circle cx="0" cy="30" r="13"/>
+      <circle cx="150" cy="-30" r="10"/><circle cx="150" cy="20" r="10"/><circle cx="150" cy="70" r="10"/>
+    </g>
+  </g>
+
+  <!-- bacterium (E. coli) silhouette being flagged -->
+  <g transform="translate(980 430)">
+    <ellipse rx="60" ry="30" fill="#0a4733" stroke="#d4af37" stroke-opacity="0.8" stroke-width="3"/>
+    <g stroke="#7fb89f" stroke-width="3" stroke-linecap="round" stroke-opacity="0.7">
+      <path d="M-60 -10 q-18 -10 -30 4"/><path d="M60 12 q18 10 30 -4"/>
+    </g>
+  </g>
+
+  <!-- caption strip -->
+  <text x="600" y="520" text-anchor="middle" font-family="-apple-system, Arial, sans-serif"
+        font-size="22" font-weight="600" letter-spacing="3" fill="#f1e9d2" fill-opacity="0.85">
+    AI vs ANTIBIOTIC RESISTANCE · UP DILIMAN
+  </text>
+
+  <!-- wordmark -->
+  <g transform="translate(64 590)" fill="#f1e9d2" font-family="Georgia, serif">
+    <path d="M0,-22 L14,-30 L28,-22 L28,-6 L14,2 L0,-6 Z" fill="#d4af37"/>
+    <text x="42" y="-4" font-size="30" font-weight="700" letter-spacing="1">RAVENMAILS</text>
+  </g>
+
+  <!-- illustration tag -->
+  <g transform="translate(1040 44)">
+    <rect x="-2" y="-22" width="118" height="32" rx="16" fill="#000" fill-opacity="0.28" stroke="#d4af37" stroke-opacity="0.6"/>
+    <text x="56" y="0" text-anchor="middle" font-family="-apple-system, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="1.5" fill="#f1e9d2">ILLUSTRATION</text>
+  </g>
+</svg>

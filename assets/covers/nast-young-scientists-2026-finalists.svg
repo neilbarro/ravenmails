@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Illustration: five young Filipino scientists, finalists of the 2026 NAST Talent Search, represented by five fields of research">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#08261c"/>
+      <stop offset="0.55" stop-color="#0c3a2b"/>
+      <stop offset="1" stop-color="#0f6b4e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.32" r="0.65">
+      <stop offset="0" stop-color="#d4af37" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#d4af37" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- faint laurel / arc framing -->
+  <g fill="none" stroke="#d4af37" stroke-opacity="0.18" stroke-width="2">
+    <path d="M180 150 Q600 60 1020 150"/>
+    <path d="M150 480 Q600 560 1050 480"/>
+  </g>
+
+  <!-- giant 5 watermark -->
+  <text x="600" y="430" text-anchor="middle" font-family="Georgia, serif" font-size="520" font-weight="700"
+        fill="#d4af37" fill-opacity="0.06">5</text>
+
+  <!-- five gold stars in a gentle arc -->
+  <g fill="#d4af37">
+    <g transform="translate(300 138) scale(0.85)"><path d="M0,-26 6.6,-8 25,-8 10,4 16,22 0,11 -16,22 -10,4 -25,-8 -6.6,-8Z"/></g>
+    <g transform="translate(450 110) scale(0.95)"><path d="M0,-26 6.6,-8 25,-8 10,4 16,22 0,11 -16,22 -10,4 -25,-8 -6.6,-8Z"/></g>
+    <g transform="translate(600 100) scale(1.05)"><path d="M0,-26 6.6,-8 25,-8 10,4 16,22 0,11 -16,22 -10,4 -25,-8 -6.6,-8Z"/></g>
+    <g transform="translate(750 110) scale(0.95)"><path d="M0,-26 6.6,-8 25,-8 10,4 16,22 0,11 -16,22 -10,4 -25,-8 -6.6,-8Z"/></g>
+    <g transform="translate(900 138) scale(0.85)"><path d="M0,-26 6.6,-8 25,-8 10,4 16,22 0,11 -16,22 -10,4 -25,-8 -6.6,-8Z"/></g>
+  </g>
+
+  <!-- five medallions, one per field of research -->
+  <!-- medallion template: emerald disc with gold ring -->
+  <g>
+    <!-- 1. Drone / AI crack-detection (DLSU) -->
+    <g transform="translate(300 330)">
+      <circle r="78" fill="#0a4733" stroke="#d4af37" stroke-opacity="0.75" stroke-width="3"/>
+      <g stroke="#f1e9d2" stroke-width="5" stroke-linecap="round" fill="none">
+        <rect x="-22" y="-8" width="44" height="16" rx="4" fill="#f1e9d2" stroke="none"/>
+        <line x1="-22" y1="-22" x2="-44" y2="-30"/>
+        <line x1="22" y1="-22" x2="44" y2="-30"/>
+        <line x1="-22" y1="22" x2="-44" y2="30"/>
+        <line x1="22" y1="22" x2="44" y2="30"/>
+        <circle cx="-44" cy="-30" r="9"/><circle cx="44" cy="-30" r="9"/>
+        <circle cx="-44" cy="30" r="9"/><circle cx="44" cy="30" r="9"/>
+      </g>
+    </g>
+
+    <!-- 2. Plant / anticancer compound (UST) -->
+    <g transform="translate(450 330)">
+      <circle r="78" fill="#0a4733" stroke="#d4af37" stroke-opacity="0.75" stroke-width="3"/>
+      <g stroke="#7fe0b0" stroke-width="6" stroke-linecap="round" fill="none">
+        <path d="M0,34 C0,4 0,-6 0,-30"/>
+        <path d="M0,-2 C-26,-8 -34,-30 -30,-40 C-14,-40 2,-26 0,-2Z" fill="#7fe0b0" stroke="none"/>
+        <path d="M0,12 C26,6 34,-16 30,-26 C14,-26 -2,-12 0,12Z" fill="#5bbf8c" stroke="none"/>
+      </g>
+      <circle cx="0" cy="-36" r="7" fill="#d4af37"/>
+    </g>
+
+    <!-- 3. Soil layers / toxic-element assessment (Marinduque State U) -->
+    <g transform="translate(600 330)">
+      <circle r="84" fill="#0a4733" stroke="#d4af37" stroke-opacity="0.9" stroke-width="4"/>
+      <clipPath id="soil"><circle r="84"/></clipPath>
+      <g clip-path="url(#soil)">
+        <rect x="-84" y="-20" width="168" height="20" fill="#6b4a2b"/>
+        <rect x="-84" y="0" width="168" height="22" fill="#8a5a32"/>
+        <rect x="-84" y="22" width="168" height="62" fill="#5e3c22"/>
+        <rect x="-84" y="-84" width="168" height="64" fill="#0a4733"/>
+        <g fill="#f1e9d2">
+          <rect x="-24" y="-44" width="48" height="6" rx="3"/>
+          <rect x="-16" y="-34" width="32" height="6" rx="3"/>
+        </g>
+        <g fill="#d4af37">
+          <circle cx="-40" cy="34" r="5"/><circle cx="10" cy="48" r="5"/><circle cx="50" cy="30" r="5"/>
+        </g>
+      </g>
+    </g>
+
+    <!-- 4. Lake / water health index (UPLB) -->
+    <g transform="translate(750 330)">
+      <circle r="78" fill="#0a4733" stroke="#d4af37" stroke-opacity="0.75" stroke-width="3"/>
+      <path d="M0,-42 C18,-14 34,2 34,20 C34,40 18,52 0,52 C-18,52 -34,40 -34,20 C-34,2 -18,-14 0,-42Z"
+            fill="#3fa9e0" stroke="#f1e9d2" stroke-width="3"/>
+      <g stroke="#eaf6ff" stroke-width="4" stroke-linecap="round" fill="none" stroke-opacity="0.8">
+        <path d="M-18,18 q9,-9 18,0 t18,0"/>
+        <path d="M-18,32 q9,-9 18,0 t18,0"/>
+      </g>
+    </g>
+
+    <!-- 5. Microbe / Salmonella food-safety assay (UP Diliman) -->
+    <g transform="translate(900 330)">
+      <circle r="78" fill="#0a4733" stroke="#d4af37" stroke-opacity="0.75" stroke-width="3"/>
+      <g fill="#f1e9d2">
+        <ellipse cx="0" cy="0" rx="26" ry="18"/>
+      </g>
+      <g stroke="#d4af37" stroke-width="4" stroke-linecap="round">
+        <line x1="0" y1="-18" x2="0" y2="-40"/>
+        <line x1="22" y1="-8" x2="44" y2="-22"/>
+        <line x1="26" y1="6" x2="50" y2="10"/>
+        <line x1="14" y1="16" x2="28" y2="38"/>
+        <line x1="-14" y1="16" x2="-28" y2="38"/>
+        <line x1="-26" y1="6" x2="-50" y2="10"/>
+        <line x1="-22" y1="-8" x2="-44" y2="-22"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- caption strip -->
+  <text x="600" y="478" text-anchor="middle" font-family="-apple-system, Arial, sans-serif"
+        font-size="22" font-weight="600" letter-spacing="3" fill="#f1e9d2" fill-opacity="0.85">
+    FIVE YOUNG FILIPINO SCIENTISTS · NAST 2026
+  </text>
+
+  <!-- wordmark -->
+  <g transform="translate(64 575)" fill="#f1e9d2" font-family="Georgia, serif">
+    <path d="M0,-22 L14,-30 L28,-22 L28,-6 L14,2 L0,-6 Z" fill="#d4af37"/>
+    <text x="42" y="-4" font-size="30" font-weight="700" letter-spacing="1">RAVENMAILS</text>
+  </g>
+
+  <!-- illustration tag -->
+  <g transform="translate(1040 44)">
+    <rect x="-2" y="-22" width="118" height="32" rx="16" fill="#000" fill-opacity="0.28" stroke="#d4af37" stroke-opacity="0.6"/>
+    <text x="56" y="0" text-anchor="middle" font-family="-apple-system, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="1.5" fill="#f1e9d2">ILLUSTRATION</text>
+  </g>
+</svg>

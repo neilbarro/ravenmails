@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Illustration: a honey jar checked by light-based analysis with microplastic specks in everyday food">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#08261c"/>
+      <stop offset="0.55" stop-color="#0c3a2b"/>
+      <stop offset="1" stop-color="#0f6b4e"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.3" r="0.65">
+      <stop offset="0" stop-color="#d4af37" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#d4af37" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- honey jar -->
+  <g transform="translate(440 320)">
+    <rect x="-92" y="-150" width="184" height="40" rx="10" fill="#d4af37"/>
+    <rect x="-104" y="-110" width="208" height="250" rx="26" fill="#0a4733" stroke="#d4af37" stroke-opacity="0.7" stroke-width="3"/>
+    <path d="M-104 -10 q104 60 208 0 v126 q0 14 -14 14 h-180 q-14 0 -14 -14 Z" fill="#d4af37" fill-opacity="0.85"/>
+    <!-- microplastic specks suspended -->
+    <g fill="#eaf6ff" fill-opacity="0.9">
+      <rect x="-50" y="40" width="9" height="9" rx="2" transform="rotate(20 -45 44)"/>
+      <rect x="20" y="70" width="8" height="8" rx="2" transform="rotate(-15 24 74)"/>
+      <rect x="-10" y="100" width="7" height="7" rx="2"/>
+      <rect x="55" y="40" width="7" height="7" rx="2" transform="rotate(30 58 43)"/>
+      <rect x="-66" y="92" width="7" height="7" rx="2"/>
+    </g>
+  </g>
+
+  <!-- spectroscopy: light beam fanning into a spectrum -->
+  <g transform="translate(680 300)">
+    <circle r="10" fill="#f1e9d2"/>
+    <g stroke-width="8" stroke-linecap="round" stroke-opacity="0.9">
+      <line x1="14" y1="0" x2="220" y2="-78" stroke="#e2483d"/>
+      <line x1="14" y1="6" x2="226" y2="-30" stroke="#d4af37"/>
+      <line x1="14" y1="12" x2="226" y2="20" stroke="#7fe0b0"/>
+      <line x1="14" y1="18" x2="220" y2="74" stroke="#3fa9e0"/>
+    </g>
+    <text x="120" y="120" text-anchor="middle" font-family="-apple-system, Arial, sans-serif"
+          font-size="16" font-weight="600" letter-spacing="2" fill="#f1e9d2" fill-opacity="0.7">FTIR · UV-VIS</text>
+  </g>
+
+  <!-- small bee -->
+  <g transform="translate(300 170)">
+    <ellipse rx="20" ry="13" fill="#d4af37" stroke="#08261c" stroke-width="3"/>
+    <line x1="-6" y1="-13" x2="-6" y2="13" stroke="#08261c" stroke-width="3"/>
+    <line x1="6" y1="-13" x2="6" y2="13" stroke="#08261c" stroke-width="3"/>
+    <ellipse cx="-2" cy="-14" rx="14" ry="8" fill="#eaf6ff" fill-opacity="0.7"/>
+  </g>
+
+  <!-- caption strip -->
+  <text x="600" y="545" text-anchor="middle" font-family="-apple-system, Arial, sans-serif"
+        font-size="22" font-weight="600" letter-spacing="3" fill="#f1e9d2" fill-opacity="0.85">
+    MICROPLASTICS &amp; REAL HONEY · BALIK SCIENTIST
+  </text>
+
+  <!-- wordmark -->
+  <g transform="translate(64 590)" fill="#f1e9d2" font-family="Georgia, serif">
+    <path d="M0,-22 L14,-30 L28,-22 L28,-6 L14,2 L0,-6 Z" fill="#d4af37"/>
+    <text x="42" y="-4" font-size="30" font-weight="700" letter-spacing="1">RAVENMAILS</text>
+  </g>
+
+  <!-- illustration tag -->
+  <g transform="translate(1040 44)">
+    <rect x="-2" y="-22" width="118" height="32" rx="16" fill="#000" fill-opacity="0.28" stroke="#d4af37" stroke-opacity="0.6"/>
+    <text x="56" y="0" text-anchor="middle" font-family="-apple-system, Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="1.5" fill="#f1e9d2">ILLUSTRATION</text>
+  </g>
+</svg>

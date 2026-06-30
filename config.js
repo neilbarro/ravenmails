@@ -23,7 +23,12 @@ window.RAVENMAILS_CONFIG = {
   // Any article without a mapping falls back to DEFAULT_COVER.
   // Tip: to use a real photo, drop it in assets/covers/ and point to it here.
   ARTICLE_COVERS: {
-    "17cD2Gub9wLu6dfYCg4p-qa-_mrZir_PcyrIiazZmJKU": "assets/covers/six-minds.svg"
+    "17cD2Gub9wLu6dfYCg4p-qa-_mrZir_PcyrIiazZmJKU": "assets/covers/six-minds.svg",
+    "15CLhsEVHjvmnsp7QDu_QDZPwmpKwP3D1OvMFet0JE_U": "assets/covers/iscape-amr.svg",
+    "1WILOc8X4xvxJ3qskl3TKSiUpJUs9li3qW6hKuvP-07E": "assets/covers/energy-lockdown-factcheck.svg",
+    "1F5g6uM8aDc-3T1n6bLqgm5jM96aL76h1tDkH4gFXv-M": "assets/covers/dengue-climate.svg",
+    "1nzX2G1NMK_y-ADaMZejOvyVpqIjYJCm2Fd1aBCEBuxw": "assets/covers/nast-young-scientists-2026-finalists.svg",
+    "1CiCInf4x5A-KxiHtlel81Fm3eiNLdIVm3OfA9Qv-bKg": "assets/covers/mojica-microplastics-honey.svg"
   },
   DEFAULT_COVER: "assets/covers/default.svg"
 };
