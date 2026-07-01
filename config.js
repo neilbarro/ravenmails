@@ -24,11 +24,11 @@ window.RAVENMAILS_CONFIG = {
   // Tip: to use a real photo, drop it in assets/covers/ and point to it here.
   ARTICLE_COVERS: {
     "17cD2Gub9wLu6dfYCg4p-qa-_mrZir_PcyrIiazZmJKU": "assets/covers/six-minds.svg",
-    "1YSWtPQ_X_1IlGhJjs6Pb7kQPwV_VZJnyQ0-Ca6pv8sk": "assets/covers/iscape-amr.svg",
-    "1EYicm0STpXF18Z3KbvB17VPu6Pu-y_Wdjonfo2OmUgE": "assets/covers/energy-lockdown-factcheck.svg",
-    "1GxQJ0fW8L0oG0OTyC4F0ZcRL-PxZQ2OYz4EnNJ29-bw": "assets/covers/dengue-climate.svg",
-    "1bOqV6pwQJ5JdYLw_N79L2zbghIVXSPJGhivrE-6fJDg": "assets/covers/nast-young-scientists-2026-finalists.svg",
-    "1GW_prLSJ-Ad4_Sis05bx2hhYHIGSMZdcsGasicF15BI": "assets/covers/mojica-microplastics-honey.svg"
+    "12xVUj0FYGxbeqn86pF4vNYVFJeJR3yA75I33aqjRoeQ": "assets/covers/iscape-amr.svg",
+    "1Q3YAjxoPLYFU2-Gey3YWr_xg8kBpIwmcjYNJWH6974w": "assets/covers/energy-lockdown-factcheck.svg",
+    "1a6I9SjwmqSCMVZeFDD8qkYpVJUG5KpScSLPRMzyv40o": "assets/covers/dengue-climate.svg",
+    "1qzp8D4gtjkO43nEK4KusjsRAl_kAOit86NRAcy2TbUw": "assets/covers/nast-young-scientists-2026-finalists.svg",
+    "13GZWBW73U60LhdwBow2dmbYebg5jZhVQzXIH0ZS0LDI": "assets/covers/mojica-microplastics-honey.svg"
   },
   DEFAULT_COVER: "assets/covers/default.svg"
 };
