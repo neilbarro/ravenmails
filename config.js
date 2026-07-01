@@ -23,7 +23,7 @@ window.RAVENMAILS_CONFIG = {
   // Any article without a mapping falls back to DEFAULT_COVER.
   // Tip: to use a real photo, drop it in assets/covers/ and point to it here.
   ARTICLE_COVERS: {
-    "17cD2Gub9wLu6dfYCg4p-qa-_mrZir_PcyrIiazZmJKU": "assets/covers/six-minds.svg",
+    "1BkqvFb1DdWY7HsJtLg74avAtDeceefVCd3oVRQWCago": "assets/covers/six-minds.svg",
     "12xVUj0FYGxbeqn86pF4vNYVFJeJR3yA75I33aqjRoeQ": "assets/covers/iscape-amr.svg",
     "1Q3YAjxoPLYFU2-Gey3YWr_xg8kBpIwmcjYNJWH6974w": "assets/covers/energy-lockdown-factcheck.svg",
     "1a6I9SjwmqSCMVZeFDD8qkYpVJUG5KpScSLPRMzyv40o": "assets/covers/dengue-climate.svg",

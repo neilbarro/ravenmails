@@ -4,7 +4,7 @@
    - Google Drive API (articles): network-first, fall back to cache when offline.
    - Navigations: fall back to a cached page (offline.html, then index.html) if the network fails.
    Bump CACHE_VERSION whenever shell files change to retire old caches. */
-const CACHE_VERSION = "ravenmails-v7";
+const CACHE_VERSION = "ravenmails-v8";
 const SHELL = [
   "./",
   "./index.html",
